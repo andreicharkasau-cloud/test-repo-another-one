@@ -1,13 +1,21 @@
-﻿Console.WriteLine("Hello, World!");
-var a = 3;
-var b = 4; //Some blank comment to delete after the development (or right now!!!)
-if(a > b)
+﻿internal class Program
 {
-  Console.WriteLine("A>B");
-}
-else
-{
-  Console.WriteLine("B>A");
-}
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Add the description of your person:");
+        Person person = new Person();
 
-Console.ReadKey();
+        person.Id = Convert.ToInt32(Console.ReadLine());
+        person.Name = Console.ReadLine();
+        person.Age = Convert.ToInt32(Console.ReadLine());
+
+        GetInfoAboutPerson(person);
+
+        Console.ReadKey();
+    }
+
+    public static void GetInfoAboutPerson(Person person)
+    {
+        Console.WriteLine($"{person.Id}. {person.Name}, {person.Age}");
+    }
+}
