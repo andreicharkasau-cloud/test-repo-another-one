@@ -41,8 +41,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
-        working-directory: ./TestSonarApp
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"InnoStore-Test-Project" /o:"andreicharkasau-cloud" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build TestSonarApp.slnx --no-incremental
+          dotnet build ./TestSonarApp/TestSonarApp.slnx --no-incremental
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
