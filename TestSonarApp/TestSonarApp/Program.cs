@@ -10,12 +10,19 @@
         person.Age = Convert.ToInt32(Console.ReadLine());
 
         GetInfoAboutPerson(person);
-
+        Console.WriteLine(GetPersonSpecialGuid(person));
         Console.ReadKey();
     }
 
     public static void GetInfoAboutPerson(Person person)
     {
         Console.WriteLine($"{person.Id}. {person.Name}, {person.Age}");
+    }
+    
+    public static Guid GetPersonSpecialGuid(Person person)
+    {
+        Guid guid = Guid.Parse(person.Id.ToString() + person.Name + person.Age.ToString());
+
+        return guid;
     }
 }
