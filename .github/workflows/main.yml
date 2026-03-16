@@ -43,5 +43,5 @@ jobs:
         shell: powershell
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"InnoStore-Test-Project" /o:"andreicharkasau-cloud" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build ./TestSonarApp/TestSonarApp.slnx --no-incremental
+          dotnet build ./TestSonarApp/TestSonarApp --no-incremental
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
